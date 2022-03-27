@@ -1,4 +1,4 @@
-package utilities;
+package Utilities;
 
 import io.restassured.response.Response;
 import org.jetbrains.annotations.NotNull;
