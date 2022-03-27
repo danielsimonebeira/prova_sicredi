@@ -36,6 +36,7 @@ Feature: Testar Cadastro de simulação de crédito
       | api/v1/simulacoes | email     | null       | 400        | E-mail não deve ser vazio                 |
       | api/v1/simulacoes | valor     | null       | 400        | Valor não pode ser vazio                  |
       | api/v1/simulacoes | parcelas  | null       | 400        | Parcelas não pode ser vazio               |
-#      | api/v1/simulacoes | email     | joaoTeste  | 400        | não é um endereço de e-mail               | # A chamada possui duas mensagens
+#     O item comentado abaixo possui possui na chamada duas mensagens e fica variando entre elas quando faz a requisicao
+#      | api/v1/simulacoes | email     | joaoTeste  | 400        | não é um endereço de e-mail               |
       | api/v1/simulacoes | valor     | 50000      | 400        | Valor deve ser menor ou igual a R$ 40.000 |
       | api/v1/simulacoes | parcelas  | 0          | 400        | Parcelas deve ser igual ou maior que 2    |

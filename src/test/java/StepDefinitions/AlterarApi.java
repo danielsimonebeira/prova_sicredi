@@ -1,11 +1,9 @@
 package StepDefinitions;
 
-import DataProviders.ConfigFileReader;
-import utilities.AcoesApiComum;
-import utilities.GeraDadosTeste;
+import Utilities.AcoesApiComum;
+import Utilities.GeraDadosTeste;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,7 +11,6 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 
 import java.util.HashMap;
@@ -39,6 +36,8 @@ public class AlterarApi {
     public void efetuar_a_chamada_no_eindpoint_pelo_cpf(String eindPoint, String nuCpf) {
         RestAssured.basePath = eindPoint;
         response = given()
+                .log()
+                .all()
                 .contentType(ContentType.JSON)
                 .body(gson.toJson(mapValores))
                 .when()

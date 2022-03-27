@@ -1,8 +1,8 @@
 package StepDefinitions;
 
 import DataProviders.ConfigFileReader;
-import utilities.AcoesApiComum;
-import utilities.GeraDadosTeste;
+import Utilities.AcoesApiComum;
+import Utilities.GeraDadosTeste;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.cucumber.java.Before;
@@ -26,7 +26,7 @@ public class CadastrarApi {
     ConfigFileReader configFileReader;
     GeraDadosTeste geraDadosTeste = new GeraDadosTeste();
     Map<String, Object> mapValores = new HashMap<>();
-
+    AcoesApiComum comum = new AcoesApiComum();
 
     @Before
     public void before() {
@@ -66,7 +66,6 @@ public class CadastrarApi {
             mapValores.put(nomeCampo, nomeValor);
             geraDadosTeste.excluiChaveEgeraDados(mapValores, true, nomeCampo);
         }
-
     }
 
     @And("o cpf {string}")
@@ -112,27 +111,16 @@ public class CadastrarApi {
 
     @And("a mensagem {string}")
     public void aMensagem(String msgEsperado) {
-        AcoesApiComum comum = new AcoesApiComum();
         comum.validaMensagemErroApi(response, msgEsperado);
 
-//        String[] chaveMsg = {"nome", "cpf", "email", "valor", "parcelas", "seguro"};
-//        if (response.body().path("mensagem") != null) {
-//            String msgRecebida = response.path("mensagem");
-//            Assert.assertEquals(msgRecebida, msgEsperado);
-//        } else {
-//            for (String obterChave : chaveMsg) {
-//                String msgRecebida = response.path("erros." + obterChave);
-//                if (msgRecebida != null) {
-//                    Assert.assertEquals(msgRecebida, msgEsperado);
-//                }
-//            }
-//        }
     }
 
     @Then("sistema retornara com o status {string} no cadastro")
     public void sistemaRetornaraComOStatusNoCadastro(String statusCode) {
         Gson gson = new GsonBuilder().serializeNulls().create();
         response = given()
+                .log()
+                .all()
                 .contentType(ContentType.JSON)
                 .body(gson.toJson(mapValores))
                 .when()

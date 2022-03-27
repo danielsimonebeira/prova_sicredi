@@ -1,4 +1,4 @@
-package utilities;
+package Utilities;
 
 import net.datafaker.Faker;
 import org.jetbrains.annotations.NotNull;
