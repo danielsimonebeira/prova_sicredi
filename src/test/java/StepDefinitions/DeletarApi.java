@@ -35,8 +35,6 @@ public class DeletarApi {
     @Then("sistema retornara com o status {string}")
     public void sistema_retornara_com_o_status(String status) {
         int statusRecebido = response.getStatusCode();
-        System.out.println("TESTE DELETA " + statusRecebido);
-
         Assert.assertEquals(statusRecebido, Integer.parseInt(status));
 
     }

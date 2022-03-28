@@ -44,27 +44,21 @@ public class GeraDadosTeste {
                 switch (nomeChaveCampo) {
                     case "nome":
                         mapAdicioValor.put(nomeChaveCampo, faker.name().fullName());
-//                        System.out.println(faker.name().fullName());
                         break;
                     case "cpf":
                         mapAdicioValor.put(nomeChaveCampo, faker.cpf().valid(false));
-//                        System.out.println(faker.cpf().valid(false));
                         break;
                     case "email":
                         mapAdicioValor.put(nomeChaveCampo, faker.internet().emailAddress());
-//                        System.out.println(faker.internet().emailAddress());
                         break;
                     case "valor":
                         mapAdicioValor.put(nomeChaveCampo, faker.number().randomDouble(2,1000,40000));
-//                        System.out.println(faker.number().randomDouble(2,1000,40000));
                         break;
                     case "parcelas":
                         mapAdicioValor.put(nomeChaveCampo, faker.number().numberBetween(2, 48));
-//                        System.out.println(faker.number().numberBetween(2, 48));
                         break;
                     case "seguro":
                         mapAdicioValor.put(nomeChaveCampo, faker.random().nextBoolean());
-//                        System.out.println(faker.random().nextBoolean());
                         break;
                 }
             } else {
