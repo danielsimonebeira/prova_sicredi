@@ -19,9 +19,9 @@ Feature: Validar Consulta dos dados da simulação
     And o parcelamento "<parcela>"
     And o seguro "<seguro>"
     Examples:
-      | eindpoint           | cpf         | statuscode | id | nome                      | email              | valor   | parcela | seguro |
-      | /api/v1/simulacoes/ | 66414919004 | 200        | 11 | Fulano Ajustado Automacao | fulano@gmail.com   | 11000.0 | 3       | true   |
-      | /api/v1/simulacoes/ | 66414919004 | 200        | 12 | Deltrano                  | deltrano@gmail.com | 20000.0 | 5       | false  |
+      | eindpoint           | cpf         | statuscode | id | nome                           | email                     | valor   | parcela | seguro |
+      | /api/v1/simulacoes/ | 66414919004 | 200        | 11 | Fulano Ajustado Automacao      | fulano@gmail.com          | 11000.0 | 3       | true   |
+      | /api/v1/simulacoes/ | 58988875044 | 200        | 14 | Maria Teste Cadastra Simulacão | MariaTeste@testeemail.com | 3800.0  | 48      | false  |
 
 
   Scenario Outline: Validar mensagem de erro da consulta
